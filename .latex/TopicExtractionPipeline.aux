@@ -1,0 +1,32 @@
+\relax 
+\@writefile{toc}{\contentsline {section}{\numberline {1}Problem Definition}{1}}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Dataset and Data Preprocessing}{1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Representing Words as Embeddings}{1}}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Keywords, Local Topics, and Topics}{1}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Advantages over LDA and Frequency Based Keyword Extractors}{2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Advantages and Disadvantages over Frequency Based Keyword Extractors}{3}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Keyword Extraction: Finding Relevant Words Within Text}{3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Search Criterion 1: Minimizing Within-Sentence Sum of Cosine Similarities}{4}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces Search Criterion 1}}{5}}
+\newlabel{euclid}{{1}{5}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Search Criterion 2: Maximizing Over-Paragraph Sum of Cosine Similarities}{5}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {2}{\ignorespaces Search Criterion 2 (Brute Approach)}}{6}}
+\newlabel{euclid}{{2}{6}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces A visualization of the keyword search based on the two described criteria. Each oval is a sentence, and each circle represents a word. Ideally, for each sentence, we select the word that minimizes its within-sentence sum of cosine similarities. Such words are denoted as solid blue circle. We also chose the keywords by selecting the words that maximize the \textit  {over-sentence sum of cosine similarities}, here denoted by dashed black lines. This scenario, where both search criteria are optimized, is highly unlikely to be found on a given input text, so a relaxation on these search criteria is imposed.}}{7}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Keyword Search Space Reduction}{7}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces A visualization of keyword selection using search criterion 1. Here, each oval denotes a sentence, each circle a word or embedding. Embeddings have been sorted by corresponding search criterion 1 values, minimum values denoted by solid blue circles. The search space here is highly constrained but leads to the minimum search criterion 1 value of $\gamma ^{min}$.}}{8}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {3}{\ignorespaces Compute Search Space Boundaries}}{9}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {4}{\ignorespaces Compute Search Stop Index}}{9}}
+\newlabel{euclid}{{4}{9}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces A visualization of five sentences, with their embeddings sorted by increasing search criterion 1. This search space is bounded by $\mathaccentV {hat}05E{\gamma }$, relaxing the boundary imposed by $\gamma ^{min}$, while reducing the size of the original search space, as denoted by the illustration. Here an ideal example is shown, where the boundary parameter $\mathaccentV {hat}05E{\gamma }$ created a 50 percent search space reduction. The search boundary is denoted by a dashed green line, and defined by the index number corresponding to all sentences, shown in the far right.}}{10}}
+\@writefile{toc}{\contentsline {section}{\numberline {7}Keyword Selection Algorithms}{10}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.1}Linear Information Propagation (Greedy)}{11}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces A visualization of the LIP Topic model. Given an ordered set of sentences $S$, i.e. text, the model assumes that the contents of a sentence depends on the contents of the previous sentence. Furthermore, a \textit  {local topic} is assumed occur throughout the contents of the text, and is encapsulated by a set of keywords, one for each sentence. Here, the topic words and flow of information are denoted by green circles and arrows respectively.}}{11}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces A visualization of the Greedy LIP algorithm. Based on the reduced search space, we find the word in the $i+1$th sentence such that we maximize the cosine similarity with the chosen word in the the $i$th sentence. The chosen keywords are denoted by circles with black dots. At each step, a greedy selection is made, considering only the $i$th and $i+1$th sentences and \textit  {search criterion 2}.}}{12}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {5}{\ignorespaces LIP (Greedy) Keyword Extraction}}{13}}
+\newlabel{euclid}{{5}{13}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.2}Objective Function Search}{13}}
+\@writefile{toc}{\contentsline {section}{\numberline {8}Topic Extraction}{14}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.1}Baseline: Simple Voting Scheme}{14}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.2}K-Means Clustering}{14}}
+\@writefile{toc}{\contentsline {section}{\numberline {9}Application: Automatic Keyword Detection in Research Papers}{14}}

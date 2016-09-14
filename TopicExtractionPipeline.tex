@@ -33,23 +33,71 @@ Topic Extraction Pipeline Outline
 \section{Problem Definition}
 Popular topic extraction methods used today are frequency and engineered-features based. We propose a data-driven method to automatically extract topics from text based on semantic relationships. In this work, we describe the derivation of this method, as well as research its applications.
 
-\subsection{Dataset Description}
-We use the GloVe word embedding dataset.
+\section{Dataset and Data Preprocessing}
 
-\section{Data Preprocessing}
-
+We use the GloVe word embedding dataset for mapping strings to vectors.
 We remove non-alphabet characters, single character words, and to make all strings lower-case. We also normalize embeddings, so computation of the cosine distance is reduced to dot product operations.\\
 
 
 \subsection{Representing Words as Embeddings}
- Embedding vectors are an efficient wayto represent a vocabulary in a compact, non-sparse, continuous way. One attractive property of word embeddings is that words with similar meaning lie close to each other on embedding space, effectively capturing semantic relationships. We use the GloVe embedding dataset to map text to an embedding representation.
+ Embedding vectors are an efficient way to represent a vocabulary in a compact, non-sparse, continuous way. One attractive property of word embeddings is that words with similar meaning lie close to each other on embedding space, effectively capturing semantic relationships. We use the GloVe embedding dataset to map text to an embedding representation.
 Due to memory limitations, we work with embeddings of size 50.
+
+\section{Keywords, Local Topics, and Topics}
+In order to extract \textbf{topics} i.e. high-level ideas that encapsulate the main points found in text, we consider a strict subset of the input text.
+The reasoning behind this search approach is that we should only consider words that are relevant and informative while avoiding common and non-informative terms.
+Once extracted, these relevant terms may lead us directly into a set of implicit topics found in any input text. The implicitness of the topics is a big aspect for
+our keyword extraction approach. Given any input text, we wish to correctly infer the topics the text is \textit{about}, even though these topics are not
+explicitly specified.
+We search for \textbf{keywords} that will lead us to topics. We define a keyword as a relevant and informative word found in a sentence. Thus, our goal
+is to first extract keywords from a set of sentences i.e. a paragraph or section in a research paper, and from those keywords infer a \textbf{local topic}.
+We define a local topic as the main idea behind a related set of sentences e.g. a paragraph or section in a research paper. Having broken down an input text
+i.e. extracted a set of local topics, we infer a set of topics that hopefully correctly encapsulate the main ideas behind the text.
+\section{Advantages over LDA and Frequency Based Keyword Extractors}
+LDA is the standard method used for topic extraction. It is reliable but nonetheless faces important shortcomings. Some known limitation of LDA are:
+\begin{itemize}
+\item Robust with short text. No parameter estimation for latent topic estimation.
+\item No need for fixed K (the number of topics is not fixed and need not be known ahead of time)
+\item LDA has Uncorrelated topics (Dirichlet topic distribution cannot capture correlations)
+\item LDA outputs topics as a mixture of words, our method outputs a set of high-level terms infered to be topics
+\item LDA topics, being composed of mixtures of words, can have terms be part of more than one topic
+\item Not scalable: LDA is not scalable to large amounts of text. Our method works in a localized manner, extracting low level information from
+chunks of the input text first i.e. extract keywords and local topics, then takes a bottom-up approach infering high level information i.e. topics.
+This allows for high scalability and is easily paralellizable
+\end{itemize}
+
+
+\subsection{Advantages and Disadvantages over Frequency Based Keyword Extractors}
+Some advantages include:
+\begin{itemize}
+\item Robust to short text: Frequency based keyword extractors assign importance or weight to terms based on frequency If a term is not frequently
+occurring, conventional keyword extractors will assign the same importance to relevant words as to common and irrelevant terms. Our method completely
+ignores frequency and these handcrafted features and makes decisions based on semantic relations of the terms in euclidean space.
+\item No n-gram or minimum frequency specification is required.
+\item Conventional methods rely on engineered features such as whether or not the term was found in the title. Our method ignores such features and
+evaluates words solely on semantic relations.
+Some disadvanteges include:
+\item Our keyword extraction method is more time consuming than frequency based approaches, since dot product operations are at the core of our method. This
+may be alleviated via GPU computations of vector operations.
+\item Our method relies on a learned word embedding vocabulary. This means we rely on a set of embeddings that reflect semantic properties accurately on
+Euclidean space.
+\end{itemize}
 
 
 
 \section{Keyword Extraction: Finding Relevant Words Within Text}
-In order to extract a set of topics from our text data, we must consider only a small subset of the entire text. This means we must find a set of relevant, meaningful and informative words which we can infer a $\textbf{topic}$ from. In order to find these meaningful words, we must search in input document space based on some search criteria. 
-First we consider extracting from a sentence the single word that minimizes its \textit{within-sentence sum of cosine similarites}. This search criterion is motivated by the assumption that \textbf{rare} words are informative. The term \textit{rare} in this context means a word that has low cosine similarity with all other words in the sentence. A second criterion we incorporate in our keyword search is to have the sum of cosine similarites between all keywords, one for each sentence, be as high as possible. This choice is motivated by the assumption that a paragraph or text will carry around a topic throughout its sentences. In summary, our two search criteria are as follows:
+In order to extract a set of topics from our text data, we must consider only a small subset of the entire text. This means we must find a set of
+relevant, meaningful and informative words which we can infer a $\textbf{topic}$ from. In order to find these meaningful words, we must search in
+input document space based on some search criteria. First we consider searching for words considering their \textit{within-sentence sum of cosine similarites}.
+This search criterion is motivated by the assumption that \textbf{rare} words are informative. The term \textit{rare} in this context means a word
+that has low cosine similarity with all other words in the sentence. Consider the scenario of a sentence defining a term. The whole sentence can be
+thought of as a collection of words used to define a single word. In this extreme case, the entire sentence i.e. the definition can be compressed by a
+single word, the word being defined. Similarly, terms that provide high information to the reader are usually described by a larger set of words.
+Thus, we consider these \textit{rare} terms to be highly informative and relevant to the reader and overall information content found in the text.
+
+A second search criterion we incorporate in our keyword search is to have the sum of cosine similarites between all keywords, one for each sentence,
+be as high as possible. This choice is justified by the assumption that a paragraph or section of a text will carry around a \textit{local topic}
+throughout its sentences. In summary, our two search criteria are as follows:
 
 \begin{itemize}
   \item Minimize within-sentence sum of cosine similarities: Find the most \textit{different} word in a sentence. This word is assumed to be highly informative
@@ -77,7 +125,7 @@ The reasoning behind this search criterion is that words which are not similar t
 \end{algorithmic}
 \end{algorithm}
 
-Consider an input set of sentences $\bm{S} = \{s_1, ..., s_n\}$, where $n = |\bm{S}|$. Each sentence $s_i$ is comprised of a set of embeddings as $s_i = \{e^{i}_{1}, ..., e^{i}_{|s_i|}\}$,  $e^{i}_{k} \in \mathbb{R}^{p}$. For each sentence $s_i$, we compute its cosine similarity matrix as 
+Consider an input set of sentences $\bm{S} = \{s_1, ..., s_n\}$, where $n = |\bm{S}|$. Each sentence $s_i$ is comprised of a set of embeddings as $s_i = \{e^{i}_{1}, ..., e^{i}_{|s_i|}\}$,  $e^{i}_{k} \in \mathbb{R}^{p}$. For each sentence $s_i$, we compute its cosine similarity matrix as
 
 \[\bm{C_i} = \begin{bmatrix}
          e^{i}_{1} \\
@@ -87,11 +135,11 @@ Consider an input set of sentences $\bm{S} = \{s_1, ..., s_n\}$, where $n = |\bm
          e^{i}_{1} \\
          \vdots \\
          e^{i}_{|s_i|} \\
-        \end{bmatrix}^{T}\] 
+        \end{bmatrix}^{T}\]
 
-We then compute, for each embedding $e^{i}_{j}, j = 1,...,|s_i|$, its \textit{within-sentence} sum of cosine similarities as 
+We then compute, for each embedding $e^{i}_{j}, j = 1,...,|s_i|$, its \textit{within-sentence} sum of cosine similarities as
 \[ c^{i}_{j} = \sum^{|s_i|}_{k=1} \bm{C_{i{_{(k,j)}}}}\]
-We denote the $i$th sentence's list of \textit{cosine similarities sums} as 
+We denote the $i$th sentence's list of \textit{cosine similarities sums} as
 \[\bm{\vec{c_i}} = \{ c^{i}_{1}, ...,  c^{i}_{|s_i|}\}\]
 
 
@@ -241,7 +289,7 @@ Given a set of sentences $\bm{S}$, we assume that the contents of the $i+1$th se
 \For{ $k$ = 3 to $n$}
     \State $d \gets 0$
     \For {$i$ = 1 to $\bm{\vec{idx[k]}}$}
-        \State$sim \gets \bm{\vec{\bar{c_{k-1}[sel_{k-1}]}}} \cdot \bm{\vec{\bar{c_{k}[sel_{i}]}}}$     
+        \State$sim \gets \bm{\vec{\bar{c_{k-1}[sel_{k-1}]}}} \cdot \bm{\vec{\bar{c_{k}[sel_{i}]}}}$
         \If{$sim \textgreater d$}
               \State$d \gets sim$
               \State$sel_k \gets i$
@@ -256,7 +304,7 @@ Given a set of sentences $\bm{S}$, we assume that the contents of the $i+1$th se
 
 
 \subsection{Objective Function Search}
-Search criterion 2 seeks to maximize \textit{over-paragraph} cosine similarity i.e. how similar the selected terms are to each other. Search criterion 1 on the other hand seeks terms that minimize how similar they are to their \textit{neighbor terms} i.e. minimize \textit{within-sentence} cosine similarity. These two search criteria are seemengly contradictory. The first criterion tries to minimize cosine similarity, while the second one tries to maximize it. It is when the two terms are combined as an objective function when they provide a more solid foundation for keyword extraction based on semantic relations. For ease of notation, we always denote a paragraph i.e. our input text as $S$ and overload indexing operations in a way similar to matrix indexing. $S_{i}$ denotes the $i$th sentence, and $S_{i,j}$ denotes the $j$th word in the $i$th sentence. We thus define our search objective function as 
+Search criterion 2 seeks to maximize \textit{over-paragraph} cosine similarity i.e. how similar the selected terms are to each other. Search criterion 1 on the other hand seeks terms that minimize how similar they are to their \textit{neighbor terms} i.e. minimize \textit{within-sentence} cosine similarity. These two search criteria are seemengly contradictory. The first criterion tries to minimize cosine similarity, while the second one tries to maximize it. It is when the two terms are combined as an objective function when they provide a more solid foundation for keyword extraction based on semantic relations. For ease of notation, we always denote a paragraph i.e. our input text as $S$ and overload indexing operations in a way similar to matrix indexing. $S_{i}$ denotes the $i$th sentence, and $S_{i,j}$ denotes the $j$th word in the $i$th sentence. We thus define our search objective function as
 \[J = \Gamma - \Delta\]
 
 where
@@ -267,5 +315,5 @@ where
 \section{Topic Extraction}
 \subsection{Baseline: Simple Voting Scheme}
 \subsection{K-Means Clustering}
-
+\section{Application: Automatic Keyword Detection in Research Papers}
 \end{document}

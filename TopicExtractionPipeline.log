@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.11.15)  13 SEP 2016 22:18
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.11.15)  13 SEP 2016 21:30
 entering extended mode
-**TopicExtractionPipeline.tex
-("C:\Users\Jona Q\Documents\Research\TopicExtractionPipeline.tex"
+**C:/Users/Jona*Q/Documents/Research/TopicExtractionPipeline.tex
+("C:/Users/Jona Q/Documents/Research/TopicExtractionPipeline.tex"
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
 abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
@@ -311,13 +311,13 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 2816 strings out of 493921
- 35243 string characters out of 3154496
+ 2815 strings out of 493921
+ 35117 string characters out of 3154496
  90911 words of memory out of 3000000
  6069 multiletter control sequences out of 15000+200000
  13973 words of font info for 50 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 27i,10n,26p,1320b,335s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 27i,10n,26p,1355b,335s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmbsy8.pfb><C:/MiKTeX/fonts/ty
 pe1/public/amsfonts/cm/cmbx12.pfb><C:/MiKTeX/fonts/type1/public/amsfonts/cm/cmb
 x6.pfb><C:/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx8.pfb><C:/MiKTeX/fonts/typ
@@ -333,8 +333,7 @@ eX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/MiKTeX/fonts/type1/public/amsf
 onts/cm/cmsy6.pfb><C:/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/MiKTe
 X/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/MiKTeX/fonts/type1/public/amsfo
 nts/symbols/msbm10.pfb>
-Output written on "C:/Users/Jona Q/Documents/Research/.latex/TopicExtractionPip
-eline.pdf" (14 pages, 1995037 bytes).
+Output written on TopicExtractionPipeline.pdf (14 pages, 1995037 bytes).
 PDF statistics:
  137 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

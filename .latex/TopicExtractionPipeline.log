@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.11.15)  13 SEP 2016 22:18
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.11.15)  7 NOV 2016 17:59
 entering extended mode
 **TopicExtractionPipeline.tex
 ("C:\Users\Jona Q\Documents\Research\TopicExtractionPipeline.tex"
@@ -313,7 +313,7 @@ LaTeX Warning: There were multiply-defined labels.
 Here is how much of TeX's memory you used:
  2816 strings out of 493921
  35243 string characters out of 3154496
- 90911 words of memory out of 3000000
+ 91911 words of memory out of 3000000
  6069 multiletter control sequences out of 15000+200000
  13973 words of font info for 50 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
@@ -334,7 +334,7 @@ onts/cm/cmsy6.pfb><C:/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/MiKTe
 X/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/MiKTeX/fonts/type1/public/amsfo
 nts/symbols/msbm10.pfb>
 Output written on "C:/Users/Jona Q/Documents/Research/.latex/TopicExtractionPip
-eline.pdf" (14 pages, 1995037 bytes).
+eline.pdf" (14 pages, 1995282 bytes).
 PDF statistics:
  137 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

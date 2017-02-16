@@ -1,0 +1,11 @@
+{
+  "projectPath": "C:/Users/Jona Q/Documents/Research",
+  "title": "LaTeX-Plus Project",
+  "root": "draft.tex",
+  "program": "pdflatex",
+  "latexmkOptions": "-bibtex -pdf -shell-escape",
+  "output": ".Abstractlatex",
+  "openOutput": "true",
+  "postAction": "copy",
+  "postPath": "."
+}

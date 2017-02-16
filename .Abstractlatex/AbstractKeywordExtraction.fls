@@ -1,0 +1,70 @@
+PWD C:/Users/Jona Q/Documents/Research
+INPUT C:/Users/Jona Q/AppData/Local/MiKTeX/2.9/miktex/data/le/pdftex/pdflatex.fmt
+INPUT C:/Users/Jona Q/Documents/Research/AbstractKeywordExtraction.tex
+OUTPUT C:/Users/Jona Q/Documents/Research/.Abstractlatex/AbstractKeywordExtraction.log
+INPUT C:/MiKTeX/tex/latex/base/article.cls
+INPUT C:/MiKTeX/tex/latex/base/article.cls
+INPUT C:/MiKTeX/tex/latex/base/size12.clo
+INPUT C:/MiKTeX/tex/latex/base/size12.clo
+INPUT C:/MiKTeX/fonts/tfm/public/cm/cmr12.tfm
+INPUT C:/MiKTeX/tex/latex/graphics/graphicx.sty
+INPUT C:/MiKTeX/tex/latex/graphics/graphicx.sty
+INPUT C:/MiKTeX/tex/latex/graphics/keyval.sty
+INPUT C:/MiKTeX/tex/latex/graphics/keyval.sty
+INPUT C:/MiKTeX/tex/latex/graphics/graphics.sty
+INPUT C:/MiKTeX/tex/latex/graphics/graphics.sty
+INPUT C:/MiKTeX/tex/latex/graphics/trig.sty
+INPUT C:/MiKTeX/tex/latex/graphics/trig.sty
+INPUT C:/MiKTeX/tex/latex/00miktex/graphics.cfg
+INPUT C:/MiKTeX/tex/latex/00miktex/graphics.cfg
+INPUT C:/MiKTeX/tex/latex/pdftex-def/pdftex.def
+INPUT C:/MiKTeX/tex/latex/pdftex-def/pdftex.def
+INPUT C:/MiKTeX/tex/generic/oberdiek/infwarerr.sty
+INPUT C:/MiKTeX/tex/generic/oberdiek/infwarerr.sty
+INPUT C:/MiKTeX/tex/generic/oberdiek/ltxcmds.sty
+INPUT C:/MiKTeX/tex/generic/oberdiek/ltxcmds.sty
+INPUT C:/MiKTeX/tex/latex/float/float.sty
+INPUT C:/MiKTeX/tex/latex/float/float.sty
+INPUT C:/MiKTeX/tex/latex/algorithms/algorithm.sty
+INPUT C:/MiKTeX/tex/latex/algorithms/algorithm.sty
+INPUT C:/MiKTeX/tex/latex/base/ifthen.sty
+INPUT C:/MiKTeX/tex/latex/base/ifthen.sty
+INPUT C:/MiKTeX/tex/latex/amsmath/amsmath.sty
+INPUT C:/MiKTeX/tex/latex/amsmath/amsmath.sty
+INPUT C:/MiKTeX/tex/latex/amsmath/amstext.sty
+INPUT C:/MiKTeX/tex/latex/amsmath/amstext.sty
+INPUT C:/MiKTeX/tex/latex/amsmath/amsgen.sty
+INPUT C:/MiKTeX/tex/latex/amsmath/amsgen.sty
+INPUT C:/MiKTeX/tex/latex/amsmath/amsbsy.sty
+INPUT C:/MiKTeX/tex/latex/amsmath/amsbsy.sty
+INPUT C:/MiKTeX/tex/latex/amsmath/amsopn.sty
+INPUT C:/MiKTeX/tex/latex/amsmath/amsopn.sty
+INPUT C:/MiKTeX/tex/latex/algorithmicx/algpseudocode.sty
+INPUT C:/MiKTeX/tex/latex/algorithmicx/algpseudocode.sty
+INPUT C:/MiKTeX/tex/latex/algorithmicx/algorithmicx.sty
+INPUT C:/MiKTeX/tex/latex/algorithmicx/algorithmicx.sty
+INPUT C:/MiKTeX/tex/latex/amsfonts/amssymb.sty
+INPUT C:/MiKTeX/tex/latex/amsfonts/amssymb.sty
+INPUT C:/MiKTeX/tex/latex/amsfonts/amsfonts.sty
+INPUT C:/MiKTeX/tex/latex/amsfonts/amsfonts.sty
+INPUT C:/MiKTeX/tex/latex/tools/bm.sty
+INPUT C:/MiKTeX/tex/latex/tools/bm.sty
+INPUT C:/Users/Jona Q/Documents/Research/.Abstractlatex/AbstractKeywordExtraction.aux
+INPUT C:/Users/Jona Q/Documents/Research/.Abstractlatex/AbstractKeywordExtraction.aux
+OUTPUT C:/Users/Jona Q/Documents/Research/.Abstractlatex/AbstractKeywordExtraction.aux
+INPUT C:/MiKTeX/tex/context/base/supp-pdf.mkii
+INPUT C:/MiKTeX/tex/context/base/supp-pdf.mkii
+INPUT C:/MiKTeX/fonts/tfm/public/cm/cmr17.tfm
+INPUT C:/MiKTeX/fonts/tfm/public/cm/cmbx12.tfm
+INPUT C:/MiKTeX/fonts/tfm/public/cm/cmr12.tfm
+INPUT C:/MiKTeX/fonts/tfm/public/cm/cmbx12.tfm
+OUTPUT C:/Users/Jona Q/Documents/Research/.Abstractlatex/AbstractKeywordExtraction.pdf
+INPUT C:/Users/Jona Q/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map
+INPUT C:/MiKTeX/fonts/tfm/public/cm/cmbx12.tfm
+INPUT C:/MiKTeX/fonts/tfm/public/cm/cmti12.tfm
+INPUT C:/MiKTeX/fonts/tfm/public/cm/cmtt12.tfm
+INPUT C:/Users/Jona Q/Documents/Research/.Abstractlatex/AbstractKeywordExtraction.aux
+INPUT C:/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb
+INPUT C:/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb
+INPUT C:/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb
+INPUT C:/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb
